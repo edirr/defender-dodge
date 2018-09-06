@@ -1,0 +1,64 @@
+
+
+.container{
+	display: flex;
+	height: 100vh;
+	box-sizing: border-box;
+}
+
+.left-column{
+	background-color: blue;
+	height: 100%;
+	width: 25%;
+}
+.right-column{
+	background-color: red;
+	height: 100%;
+	width: 25%;
+}
+.game-board{
+	display:flex;
+	background-color: green;
+	height: 100%;
+	width: 50%;
+	/*background-image: url("https://previews.123rf.com/images/hxdbzxy/hxdbzxy1205/hxdbzxy120502556/13781619-natural-green-trimmed-grass-field-background-for-sports-.jpg");*/
+}
+.defender{
+	position: absolute;
+	height: 100px;
+	width: 20%;
+	background-color: yellow;
+	animation-name: slideDown;
+  	animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	right:600px;
+
+	/*background-position: -500px 0px;*/
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(0)
+  }
+  100% {
+    transform: translateY(750px)
+  };
+  animation-fill-mode: forwards;
+}
+
+.player{
+	position:relative;
+	height: 100px;
+	width: 20%;
+	background-color: black;
+	align-self: flex-end;
+	margin-left:0px;
+	margin-right:0px;
+
+}
+
+
+
