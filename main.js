@@ -5,6 +5,7 @@ window.onload = function() {
   function createDefender(){
     const defender = document.createElement('div');
     defender.className = "defender";
+    defender.setAttribute("data-dynamic", "false")
     gameBoard.appendChild(defender);
 
     function randomPosition(defender){
@@ -15,7 +16,30 @@ window.onload = function() {
   }
   randomPosition(defender);
 
+
+  // function checkForCollide(){
+  // let counter = 0
+  // let collide = setInterval(function(){
+  //   checkCollision(player, defender);
+  //   counter++
+  //   if(counter === 1000){
+  //     clearInterval(collide)
+  //     return 
+  //   }
+
+  // }, 100);}
+
+
+setInterval(function(){
+  if(checkCollision(player,defender)){
+    alert("hit!")
   }
+ },100);
+}
+
+
+
+
   // for( i = 0; i < 2; i++){
   //   setTimeout(createDefender, 1000);
   //  }
@@ -39,7 +63,8 @@ let score = counter + 100;
     if(counter === 30){
       clearInterval(level_1)
       return 
-    }console.log(counter)
+    }
+    // console.log(counter)
 
   }, 500)
   setTimeout(level_2, 20000);}
@@ -52,7 +77,8 @@ function level_2(){
     if(counter === 60){
       clearInterval(level_2)
       return 
-    }console.log(counter)
+    }
+    // console.log(counter)
 
   }, 250);
 setTimeout(level_3, 20000)}
@@ -89,13 +115,14 @@ function level_4(){
 
 
   level_1();
-  console.log(counter);
+  // console.log(counter);
 
 
 
 
 
 const player = document.querySelector('.player');
+const defenderPlayer = document.querySelector('.defender');
 
 document.addEventListener('keydown', move);
 // .addEventListener('keydown', moveLeft);
@@ -128,13 +155,57 @@ else if(e.keyCode === 37){
 }
 
 
+// function Collide(a, b) {
+//     return !(
+//         ((a.y + a.height) < (b.y)) ||
+//         (a.y > (b.y + b.height)) ||
+//         ((a.x + a.width) < b.x) ||
+//         (a.x > (b.x + b.width))
+//     );
+// }
+
+//stackoverflow
+function checkCollision(a, b) {
+    let aRect = a.getBoundingClientRect();
+    let bRect = b.getBoundingClientRect();
+    
+    return !(
+        ((aRect.top + aRect.height) < (bRect.top)) ||
+        (aRect.top > (bRect.top + bRect.height)) ||
+        ((aRect.left + aRect.width) < bRect.left) ||
+        (aRect.left > (bRect.left + bRect.width))
+
+    );
+  }
 
 
-   
-   
-// console.log(e.key, 'CURRENT keydown');
+// checkCollision(player, defender);
+
+
+// function checkForCollide(){
+//   let counter = 0
+//   let Collide = setInterval(function(){
+//     checkCollision(player, defender);
+//     counter++
+//     if(counter === 1000){
+//       clearInterval(Collide)
+//       return 
+//     }
+
+//   }, 10);}
+
+
+
+
+
+
+
+
+
+
+
 }
 
-//}
+
 
 
