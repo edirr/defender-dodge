@@ -15,19 +15,25 @@
 	background-color: red;
 	height: 100%;
 	width: 25%;
+
 }
 .game-board{
 	display:flex;
 	background-color: green;
-	height: 100%;
-	width: 50%;
-	/*background-image: url("https://previews.123rf.com/images/hxdbzxy/hxdbzxy1205/hxdbzxy120502556/13781619-natural-green-trimmed-grass-field-background-for-sports-.jpg");*/
+	height: 100vh;
+	width: 80%;
+	overflow: hidden;
+	justify-content: center;
+	margin-left: 10%;
+	background-image: url(images/football-field-cropped.png);
+	background-size: cover;
 }
 .defender{
+	box-sizing: border-box;
 	position: absolute;
 	height: 100px;
-	width: 20%;
-	background-color: yellow;
+	width: 80px;
+	/*background-color: yellow;*/
 	animation-name: slideDown;
   	animation-duration: 2s;
 	animation-timing-function: linear;
@@ -35,6 +41,10 @@
 	animation-direction: normal;
 	animation-fill-mode: forwards;
 	right:600px;
+	margin:3px;
+	overflow: hidden;
+	background-image: url(images/frontrun.gif);
+	background-size: cover;
 
 	/*background-position: -500px 0px;*/
 }
@@ -52,11 +62,13 @@
 .player{
 	position:relative;
 	height: 100px;
-	width: 20%;
-	background-color: black;
+	width: 10%;
+	/*background-color: black;*/
 	align-self: flex-end;
 	margin-left:0px;
 	margin-right:0px;
+	background-image: url(images/backrun.gif);
+	background-size: cover;
 
 }
 

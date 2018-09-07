@@ -9,15 +9,89 @@ window.onload = function() {
 
     function randomPosition(defender){
 
-    let right = Math.random() * gameBoard.innerWidth;
+    let random = ((Math.random() * gameBoard.clientWidth)+ gameBoard.offsetLeft)- 40;
 
-    defender.style.right += right + "px"
+    defender.style.left = random + "px"
   }
+  randomPosition(defender);
+
+  }
+  // for( i = 0; i < 2; i++){
+  //   setTimeout(createDefender, 1000);
+  //  }
+
   
+  // function timeOut(){
+  // for( i = 0; i < 2; i++){ 
+  // (function(i){setTimeout(function(){createDefender()}, 1000)})(i) 
 
-  }
-  createDefender();
-  randomPosition();
+  // }}
+
+  // timeOut();
+  
+let counter = 0;
+let score = counter + 100;
+  function level_1(){
+  //let counter = 0
+  let level_1 = setInterval(function(){
+    createDefender();
+    counter++
+    if(counter === 30){
+      clearInterval(level_1)
+      return 
+    }console.log(counter)
+
+  }, 500)
+  setTimeout(level_2, 20000);}
+
+function level_2(){
+  //let counter = 0
+  let level_2 = setInterval(function(){
+    createDefender();
+    counter++
+    if(counter === 60){
+      clearInterval(level_2)
+      return 
+    }console.log(counter)
+
+  }, 250);
+setTimeout(level_3, 20000)}
+
+
+
+  function level_3(){
+  let counter = 0
+  let level_3 = setInterval(function(){
+    createDefender();
+    counter++
+    if(counter === 90){
+      clearInterval(level_3)
+      return 
+    }
+
+  }, 150);
+setTimeout(level_4, 20000)}
+
+
+
+function level_4(){
+  let counter = 0
+  let level_4 = setInterval(function(){
+    createDefender();
+    counter++
+    if(counter === 120){
+      clearInterval(level_4)
+      return 
+    }
+
+  }, 100);}
+
+
+
+  level_1();
+  console.log(counter);
+
+
 
 
 
@@ -26,45 +100,41 @@ const player = document.querySelector('.player');
 document.addEventListener('keydown', move);
 // .addEventListener('keydown', moveLeft);
 
+// function move(e){
+//   // console.log(e, 'EVENT')
+//     const keydown = e.key;
+//   if(keydown === "ArrowRight"){
+//     player.style.left = (player.style.left + 50)+'px';
+//     // player.style.marginRight -= 200 = "px";
+//   }
+//   else if(keydown === "ArrowLeft"){
+//     player.style.right += 50 + "px";
+//     // player.style.marginLeft -= 200 = "px";
+//   }
+
+
+
+let left = 0;
 function move(e){
-  // console.log(e, 'EVENT')
-  const keydown = e.key;
-  if(keydown === "ArrowRight"){
-    player.style.left += 100 + "px";
-  }
-  else if(keydown === "ArrowLeft"){
-    player.style.right += 100 + "px";
-  }
+  if(e.keyCode === 39){
+    left += 20;
+  player.style.left = (parseInt(left) + left) + "px";
+}
+
+else if(e.keyCode === 37){
+  left -= 20;
+  player.style.left = (parseInt(left) + left) + "px";
+}
+}
+
+
+
 
    
    
 // console.log(e.key, 'CURRENT keydown');
 }
 
-
-// console.log(rightButton);
-}
+//}
 
 
- //  console.log(body);
-
- // function createDuck(){
-
- //  const duck = document.createElement("div");
- //  duck.className = "duck";
-  
- //  body.appendChild(duck);
-  
- //  duck.classList.add("flap");
-  
- //  setInterval(function(){ duck.classList.toggle("flap"); }, 250);
-
- //  function randomPosition(duck){
- //    let left = Math.random() * window.innerWidth;
- //    let top = Math.random() * window.innerHeight;
-
- //    duck.style.left = left + "px";
- //    duck.style.top = top + "px";
-
-
- //  }
