@@ -1,36 +1,49 @@
 window.onload = function() {
-  
+
+  //Creating variables 
   const gameBoard = document.querySelector(".game-board")
   const gameOverPrompt = document.querySelector(".heading");
   const endScreen = document.querySelector(".screen");
   const scoreDisplay = document.querySelector(".score");
   const level = document.querySelector("#level");
+  const player = document.querySelector('.player');
+  const defenderPlayer = document.querySelector('.defender');
   let score = 0;
 
 
+  //Defenders are created and randomly dropped from the top of the page 
   function createDefender(){
     const defender = document.createElement('div');
     defender.className = "defender";
     gameBoard.appendChild(defender);
 
     function randomPosition(defender){
-
     let random = ((Math.random() * gameBoard.clientWidth)+ gameBoard.offsetLeft)- 40;
-
     defender.style.left = random + "px"
-  }
-  randomPosition(defender);
-  score = score + 100
+    }
+    randomPosition(defender);
+    score = score + 100
   
 
+    //constantly checking for collision until given a true vaule
+    //after true value, it runs the GameOver function.
+    setInterval(function(){
+      if(checkCollision(player,defender)){
+      GameOver();
+      }
+    },100);
 
-setInterval(function(){
-  if(checkCollision(player,defender)){
-    GameOver();
   }
- },100);
 
+  //score is constantly being refreshed and adding to the screen
+  setInterval(function(){ scoreDisplay.innerHTML = `Score: ${score}`; }, 500);
+
+  
+  //Levels
+  //Defenders are created and dropped at increasing intervals as the 
+  //levels increase. Once the counter hits the value it clears the interval and starts the next level
   let counter = 0;
+  
   function level_1(){
   let level_1 = setInterval(function(){
     createDefender();
@@ -39,6 +52,7 @@ setInterval(function(){
       clearInterval(level_1)
       return 
     }
+    
     level.innerHTML = `Level: 1`
 
   }, 500)
@@ -57,6 +71,7 @@ function level_2(){
 
   }, 300);
 setTimeout(level_3, 25000)}
+
 
 
   function level_3(){
@@ -89,30 +104,13 @@ function level_4(){
   }, 200);}
 
 
-
   level_1();
 
 
 
 
-
-const player = document.querySelector('.player');
-const defenderPlayer = document.querySelector('.defender');
-
 document.addEventListener('keydown', move);
-// .addEventListener('keydown', moveLeft);
 
-// function move(e){
-//   // console.log(e, 'EVENT')
-//     const keydown = e.key;
-//   if(keydown === "ArrowRight"){
-//     player.style.left = (player.style.left + 50)+'px';
-//     // player.style.marginRight -= 200 = "px";
-//   }
-//   else if(keydown === "ArrowLeft"){
-//     player.style.right += 50 + "px";
-//     // player.style.marginLeft -= 200 = "px";
-//   }
 
 
 // Player movement
@@ -131,37 +129,27 @@ else if(e.keyCode === 37){
 
 
 //stackoverflow
-function checkCollision(a, b) {
-    let aRect = a.getBoundingClientRect();
-    let bRect = b.getBoundingClientRect();
+//Identifies where the character is located and 
+//compares the two to see if there is any overlap
+
+function checkCollision(player, defender) {
+    let runner = player.getBoundingClientRect();
+    let tackler = defender.getBoundingClientRect();
     
     return !(
-        ((aRect.top + aRect.height) < (bRect.top)) ||
-        (aRect.top > (bRect.top + bRect.height)) ||
-        ((aRect.left + aRect.width) < bRect.left) ||
-        (aRect.left > (bRect.left + bRect.width))
+        ((runner.top + runner.height) < (tackler.top)) ||
+        (runner.top > (tackler.top + tackler.height)) ||
+        ((runner.left + runner.width) < tackler.left) ||
+        (runner.left > (tackler.left + tackler.width))
 
     );
   }
 
 
-// checkCollision(player, defender);
-
-
-// function checkForCollide(){
-//   let counter = 0
-//   let Collide = setInterval(function(){
-//     checkCollision(player, defender);
-//     counter++
-//     if(counter === 1000){
-//       clearInterval(Collide)
-//       return 
-//     }
-
-//   }, 10);}
-
+//After collision is detected, the game over screen pops up with player score
+//player is then moved off gameboard, to not interfere with score
 function GameOver(){
-  // clearInterval(score);
+  
 gameOverPrompt.innerHTML = `Game Over </br> Score: ${score}`
 gameOverPrompt.classList.add("game-over");
 endScreen.classList.add("end-screen");
@@ -169,15 +157,6 @@ player.style.left = "5000px";
 
 
 }
-
-// console.log(score);
-setInterval(function(){ scoreDisplay.innerHTML = `Score: ${score}`; }, 500);
-
-
-
-
-
-
 
 
 }
