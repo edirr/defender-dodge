@@ -1,11 +1,16 @@
 window.onload = function() {
   
   const gameBoard = document.querySelector(".game-board")
+  const gameOverPrompt = document.querySelector(".heading");
+  const endScreen = document.querySelector(".screen");
+  const scoreDisplay = document.querySelector(".score");
+  const level = document.querySelector("#level");
+  let score = 0;
+
 
   function createDefender(){
     const defender = document.createElement('div');
     defender.className = "defender";
-    defender.setAttribute("data-dynamic", "false")
     gameBoard.appendChild(defender);
 
     function randomPosition(defender){
@@ -15,107 +20,77 @@ window.onload = function() {
     defender.style.left = random + "px"
   }
   randomPosition(defender);
-
-
-  // function checkForCollide(){
-  // let counter = 0
-  // let collide = setInterval(function(){
-  //   checkCollision(player, defender);
-  //   counter++
-  //   if(counter === 1000){
-  //     clearInterval(collide)
-  //     return 
-  //   }
-
-  // }, 100);}
+  score = score + 100
+  
 
 
 setInterval(function(){
   if(checkCollision(player,defender)){
-    alert("hit!")
+    GameOver();
   }
  },100);
-}
 
-
-
-
-  // for( i = 0; i < 2; i++){
-  //   setTimeout(createDefender, 1000);
-  //  }
-
-  
-  // function timeOut(){
-  // for( i = 0; i < 2; i++){ 
-  // (function(i){setTimeout(function(){createDefender()}, 1000)})(i) 
-
-  // }}
-
-  // timeOut();
-  
-let counter = 0;
-let score = counter + 100;
+  let counter = 0;
   function level_1(){
-  //let counter = 0
   let level_1 = setInterval(function(){
     createDefender();
     counter++
-    if(counter === 30){
+    if(counter === 31){
       clearInterval(level_1)
       return 
     }
-    // console.log(counter)
+    level.innerHTML = `Level: 1`
 
   }, 500)
   setTimeout(level_2, 20000);}
 
 function level_2(){
-  //let counter = 0
+  let counter = 30
   let level_2 = setInterval(function(){
     createDefender();
     counter++
-    if(counter === 60){
+    if(counter === 91){
       clearInterval(level_2)
       return 
     }
-    // console.log(counter)
+    level.innerHTML = `Level: 2`
 
-  }, 250);
-setTimeout(level_3, 20000)}
-
+  }, 300);
+setTimeout(level_3, 25000)}
 
 
   function level_3(){
-  let counter = 0
+  let counter = 90
   let level_3 = setInterval(function(){
     createDefender();
     counter++
-    if(counter === 90){
+    if(counter === 151){
       clearInterval(level_3)
       return 
     }
+    level.innerHTML = `Level: 3`
 
-  }, 150);
+  }, 250);
 setTimeout(level_4, 20000)}
 
 
 
 function level_4(){
-  let counter = 0
+  let counter = 150
   let level_4 = setInterval(function(){
     createDefender();
     counter++
-    if(counter === 120){
+    if(counter === 270){
       clearInterval(level_4)
       return 
     }
+    level.innerHTML = `Level: 4`
 
-  }, 100);}
+  }, 200);}
 
 
 
   level_1();
-  // console.log(counter);
 
 
 
@@ -140,7 +115,7 @@ document.addEventListener('keydown', move);
 //   }
 
 
-
+// Player movement
 let left = 0;
 function move(e){
   if(e.keyCode === 39){
@@ -154,15 +129,6 @@ else if(e.keyCode === 37){
 }
 }
 
-
-// function Collide(a, b) {
-//     return !(
-//         ((a.y + a.height) < (b.y)) ||
-//         (a.y > (b.y + b.height)) ||
-//         ((a.x + a.width) < b.x) ||
-//         (a.x > (b.x + b.width))
-//     );
-// }
 
 //stackoverflow
 function checkCollision(a, b) {
@@ -194,8 +160,18 @@ function checkCollision(a, b) {
 
 //   }, 10);}
 
+function GameOver(){
+  // clearInterval(score);
+gameOverPrompt.innerHTML = `Game Over </br> Score: ${score}`
+gameOverPrompt.classList.add("game-over");
+endScreen.classList.add("end-screen");
+player.style.left = "5000px";
 
 
+}
+
+// console.log(score);
+setInterval(function(){ scoreDisplay.innerHTML = `Score: ${score}`; }, 500);
 
 
 
