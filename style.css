@@ -81,16 +81,18 @@ html{
 	border: black 10px solid;
 	border-style: outset;
 	align-self: center;
+	justify-content: center;
 }
 .game-over{
 	text-align: center;
+	margin-left: 10px;
     font-size: 100px;
     font-family: 'Share Tech Mono', monospace;
     text-shadow:
-		-1px -1px 0 #FFF,
-		1px -1px 0 #FFF,
-		-1px 1px 0 #FFF,
-		1px 1px 0 #FFF;
+		-2px -2px 0 #FFF,
+		2px -2px 0 #FFF,
+		-2px 2px 0 #FFF,
+		2px 2px 0 #FFF;
 }
 .score{
 	font-size: 50px;
@@ -99,10 +101,10 @@ html{
 	justify-content: center;
 	color: white;
 	text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
+		-2px -2px 0 #000,
+		2px -2px 0 #000,
+		-2px 2px 0 #000,
+		2px 2px 0 #000;
 }
 #level{
 	font-size: 50px;
@@ -112,10 +114,10 @@ html{
 	color: white;
 	margin-top: 35px;
 	text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
+		-2px -2px 0 #000,
+		2px -2px 0 #000,
+		-2px 2px 0 #000,
+		2px 2px 0 #000;
 
 
 }

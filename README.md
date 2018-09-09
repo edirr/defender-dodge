@@ -8,4 +8,4 @@ My game is a classic arcade style game where you must maneuver your player in an
 
 
 Here is the link to play my game:
-https://git.generalassemb.ly/edirr/project_1
+https://pages.git.generalassemb.ly/edirr/project_1/
