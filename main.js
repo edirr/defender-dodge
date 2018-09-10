@@ -171,7 +171,7 @@ restartButton.innerHTML = 'Play Again';
 restartButton.addEventListener('click', restart)
 
 function restart(){
-  window.location.replace("start-screen.html")
+  window.location.replace("index.html")
 
 }
 
