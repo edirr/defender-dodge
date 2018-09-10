@@ -161,17 +161,12 @@ endScreen.appendChild(restartButton);
 restartButton.innerHTML = 'Play Again';
 
 
-// const backToStart = document.createElement('a')
-// backToStart.setAttribute("href", "start-screen.html");
-
-
-
 
 }
 restartButton.addEventListener('click', restart)
 
 function restart(){
-  window.location.replace("index.html")
+  window.location.replace("index.html");
 
 }
 
