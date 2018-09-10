@@ -9,3 +9,16 @@ My game is a classic arcade style game where you must maneuver your player in an
 
 Here is the link to play my game:
 https://pages.git.generalassemb.ly/edirr/project_1/
+
+Wire Frame
+images/wire-frame.jpg
+
+
+Technologies used:
+Used HTML, CSS and JavaScript. 
+Used collision detection to check to see if the player hit one of the defenders
+Used intervals to loop my functions. Used to to keep looping my function checking for collision constantly, as well as for my levels to continually drop defenders. 
+
+
+Unsolved Problems:
+I was unable to stop the score counter on the side of the game after the game ended. But i was able to stop the score on the game over screen by pushing the player off the screen on losing to stop interference with the score. 
