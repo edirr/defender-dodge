@@ -1,3 +1,4 @@
+
 window.onload = function() {
 
   //Creating variables 
@@ -145,7 +146,7 @@ function checkCollision(player, defender) {
     );
   }
 
-
+const restartButton = document.createElement('button');
 //After collision is detected, the game over screen pops up with player score
 //player is then moved off gameboard, to not interfere with score
 function GameOver(){
@@ -155,8 +156,26 @@ gameOverPrompt.classList.add("game-over");
 endScreen.classList.add("end-screen");
 player.style.left = "5000px";
 
+restartButton.classList.add("restart-button");
+endScreen.appendChild(restartButton);
+restartButton.innerHTML = 'Play Again';
+
+
+// const backToStart = document.createElement('a')
+// backToStart.setAttribute("href", "start-screen.html");
+
+
+
 
 }
+restartButton.addEventListener('click', restart)
+
+function restart(){
+  window.location.replace("start-screen.html")
+
+}
+
+
 
 
 }

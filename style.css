@@ -85,6 +85,8 @@ html{
 }
 .game-over{
 	text-align: center;
+	padding-bottom: 0;
+	justify-content: center;
 	margin-left: 10px;
     font-size: 100px;
     font-family: 'Share Tech Mono', monospace;
@@ -94,6 +96,10 @@ html{
 		-2px 2px 0 #FFF,
 		2px 2px 0 #FFF;
 }
+h1.heading.game-over{
+	margin-bottom: 0;
+}
+
 .score{
 	font-size: 50px;
 	height: 10px;
@@ -120,6 +126,97 @@ html{
 		2px 2px 0 #000;
 
 
+}
+
+.start-game-board{
+	margin-top: 75px;
+	display:flex;
+	background-color: green;
+	height: 630px;
+	width: 80%;
+	overflow: hidden;
+	justify-content: center;
+	margin-left: 10%;
+	background-image: url(images/football-field-cropped.png);
+	background-size: cover;
+
+}
+
+.start-screen{
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #E10011;
+	height: 400px;
+	width: 700px;
+	font-family: 'Share Tech Mono', monospace;
+	border: black 10px solid;
+	border-style: outset;
+	align-self: center;
+	justify-content: center;
+
+}
+
+.start-heading{
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+	margin-left: 10px;
+    font-size: 60px;
+    font-family: 'Share Tech Mono', monospace;
+    text-shadow:
+		-2px -2px 0 #FFF,
+		2px -2px 0 #FFF,
+		-2px 2px 0 #FFF,
+		2px 2px 0 #FFF;
+
+}
+.directions{
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 40px;
+	text-align: center;
+	margin-left: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    text-shadow:
+		-2px -2px 0 #FFF,
+		2px -2px 0 #FFF,
+		-2px 2px 0 #FFF,
+		2px 2px 0 #FFF;
+}
+.start-button{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	justify-content: center;
+	height: 100px;
+	width: 220px;
+	font-family: 'Share Tech Mono', monospace;
+	font-size: 75px;
+	background-color: black;
+	border: white 10px solid;
+	color: white;
+	border-style: outset;
+
+}
+button:hover{
+	background-color: #2A2929;
+}
+
+.restart-button{
+	justify-content: center;
+	margin-top: 0;
+	margin-bottom: 60px;
+	margin-left: 250px;
+	padding: 0;
+	align-self: flex-end;
+	height: 70px;
+	width: 200px;
+	font-family: 'Share Tech Mono', monospace;
+	font-size: 30px;
+	background-color: black;
+	border: white 10px solid;
+	color: white;
+	border-style: outset;
 }
 
 
